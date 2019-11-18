@@ -1,6 +1,14 @@
 package com.lti.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user1")
 public class User {
+	
+	@Id
 	int id;
 	String name;
 	String email;

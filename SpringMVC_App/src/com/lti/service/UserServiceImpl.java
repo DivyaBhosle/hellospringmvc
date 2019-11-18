@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.model.User;
 import com.lti.repository.UserRepository;
@@ -13,8 +14,8 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	UserRepository repository;
 	@Override
-	public User addUser(User u) {
-		return repository.addUser(u);
+	public void addUser(User u) {
+		repository.addUser(u);
 	}
 
 	@Override
@@ -31,9 +32,10 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User findUserById(int id) {
-		User u=repository.findUserById(id);
-		return u;
+	
+	public User findUserById(User u) {
+		User u1=repository.findUserById(u);
+		return u1;
 	}
 
 	@Override
